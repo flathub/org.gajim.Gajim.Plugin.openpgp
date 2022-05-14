@@ -1,7 +1,7 @@
 id: org.gajim.Gajim.Plugin.openpgp
 runtime: org.gajim.Gajim
 runtime-version: stable
-sdk: org.gnome.Sdk//41
+sdk: org.gnome.Sdk//42
 build-extension: true
 separate-locales: false
 appstream-compose: false
@@ -51,5 +51,6 @@ modules:
       - appstream-compose --basename=org.gajim.Gajim.Plugin.openpgp --prefix=${FLATPAK_DEST} --origin=flatpak org.gajim.Gajim.Plugin.openpgp
     sources:
       - type: archive
-        url: https://ftp.gajim.org/plugins_releases/openpgp_1.3.9.zip
-        sha256: 43d490a4b125a4d97bdf89bf55d2012cd1c48a66464b965726b2c27055defb3b
+        strip-components: 0
+        url: https://ftp.gajim.org/plugins/master/openpgp/openpgp_1.4.9.zip
+        sha256: b881ed25942c89a5a647ec3fc08e68278f1365a74ffb704d4ffffc10957195f7
