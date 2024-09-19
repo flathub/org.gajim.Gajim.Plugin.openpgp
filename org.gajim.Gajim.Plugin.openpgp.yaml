@@ -1,10 +1,11 @@
 id: org.gajim.Gajim.Plugin.openpgp
 runtime: org.gajim.Gajim
 runtime-version: stable
-sdk: org.gnome.Sdk//46
+sdk: org.gnome.Sdk//47
 build-extension: true
 separate-locales: false
 appstream-compose: false
+
 build-options:
   env:
     PIP_TARGET: /app/plugins/openpgp/site-packages
@@ -36,13 +37,13 @@ modules:
       prefix: ${FLATPAK_DEST}
     post-install:
       - mkdir -p ${FLATPAK_DEST}/site-packages
-      - mv ${FLATPAK_DEST}/lib/python3.11/site-packages/*.egg/gpg ${FLATPAK_DEST}/site-packages/
+      - mv ${FLATPAK_DEST}/lib/python3.12/site-packages/*.egg/gpg ${FLATPAK_DEST}/site-packages/
     sources:
       # used version should match runtime version of gpgme
       # so we don't have to ship libs
       - type: archive
-        url: https://www.gnupg.org/ftp/gcrypt/gpgme/gpgme-1.22.0.tar.bz2
-        sha256: 9551e37081ad3bde81018a0d24f245c3f8206990549598fb31a97a68380a7b71
+        url: https://www.gnupg.org/ftp/gcrypt/gpgme/gpgme-1.23.2.tar.bz2
+        sha256: 9499e8b1f33cccb6815527a1bc16049d35a6198a6c5fae0185f2bd561bce5224
 
   - name: gajim-openpgp
     buildsystem: simple
@@ -50,9 +51,10 @@ modules:
       - 'cp -R -t ${FLATPAK_DEST} *'
     post-install:
       - install -Dm644 --target-directory=${FLATPAK_DEST}/share/metainfo org.gajim.Gajim.Plugin.openpgp.metainfo.xml
-      - appstream-compose --basename=org.gajim.Gajim.Plugin.openpgp --prefix=${FLATPAK_DEST} --origin=flatpak org.gajim.Gajim.Plugin.openpgp
+      - appstreamcli compose --components=${FLATPAK_ID} --prefix=/ --origin=${FLATPAK_ID}
+        --result-root=${FLATPAK_DEST} --data-dir=${FLATPAK_DEST}/share/app-info/xmls ${FLATPAK_DEST}
     sources:
       - type: archive
         strip-components: 0
-        url: https://ftp.gajim.org/plugins/master/openpgp/openpgp_1.6.0.zip
-        sha256: ba2c946b1923d7374c80034e9448d85fd56a47079aa02b8f2049455fe792f189
+        url: https://ftp.gajim.org/plugins/master/openpgp/openpgp_1.6.1.zip
+        sha256: 900f3e1470411eac1f4d64df984bc010dbe07b8ac3a32dcb7773b02b152f2f54
