@@ -53,5 +53,5 @@ modules:
     sources:
       - type: archive
         strip-components: 0
-        url: https://ftp.gajim.org/plugins/master/openpgp/openpgp_1.7.1.zip
-        sha256: 771d775067b0ee1f98fd56da99178208d326184738b05c086bd2199dcbe3b716
+        url: https://ftp.gajim.org/plugins/master/openpgp/openpgp_1.8.0.zip
+        sha256: e644f532f8e09f432bebffeec56b81bf7bb11738b46a08a9d8a83e217cd20632
