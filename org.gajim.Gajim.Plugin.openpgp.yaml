@@ -1,5 +1,5 @@
-id: org.gajim.Gajim.Devel.Plugin.openpgp
-runtime: org.gajim.Gajim.Devel
+id: org.gajim.Gajim.Plugin.openpgp
+runtime: org.gajim.Gajim
 sdk: org.gnome.Sdk//48
 build-extension: true
 separate-locales: false
@@ -54,6 +54,3 @@ modules:
         strip-components: 0
         url: https://ftp.gajim.org/plugins/master/openpgp/openpgp_1.8.0.zip
         sha256: e644f532f8e09f432bebffeec56b81bf7bb11738b46a08a9d8a83e217cd20632
-      - type: shell
-        commands:
-          - sed -i "s+org.gajim.Gajim+org.gajim.Gajim.Devel+" org.gajim.Gajim.Plugin.*.metainfo.xml
