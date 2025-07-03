@@ -1,5 +1,6 @@
 id: org.gajim.Gajim.Plugin.openpgp
 runtime: org.gajim.Gajim
+runtime-version: stable
 sdk: org.gnome.Sdk//48
 build-extension: true
 separate-locales: false
